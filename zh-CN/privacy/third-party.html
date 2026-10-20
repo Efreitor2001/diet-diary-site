@@ -19,7 +19,7 @@
 <nav class="language-switch" aria-label="语言"><a href="../../privacy/third-party.html" lang="ru" hreflang="ru">Русский</a> · <a href="../../en/privacy/third-party.html" lang="en" hreflang="en">English</a> · <a href="../../zh-CN/privacy/third-party.html" lang="zh-CN" hreflang="zh-Hans" aria-current="page">简体中文</a></nav>
 
 <h1>第三方 SDK 与服务清单</h1>
-<p class="meta">饮食日记 · 更新日期：<time datetime="2026-10-18">2026 年 10 月 18 日</time> · Android 应用组件</p>
+<p class="meta">饮食日记 · 更新日期：<time datetime="2026-10-20">2026 年 10 月 20 日</time> · Android 应用组件</p>
 <p>应用运营者：<strong>俄罗斯个体经营者 Sergey Olegovich Efremov（Efreitor2001）</strong>。联系邮箱：<a href="mailto:pokimoha.123@gmail.com">pokimoha.123@gmail.com</a>；<a href="https://diet.efreitor2001.ru/offer/#details">登记信息</a>。本页说明应用组件、外部接收方及网站服务。SDK 版本对应已检查的构建；一个软件库不一定是独立的数据接收方。支付组件仅在购买功能已开启的地方使用。</p>
 <nav class="toc" aria-label="服务目录"><a href="#yandex">Yandex</a> · <a href="#google">Google / AppAuth</a> · <a href="#robokassa">Robokassa</a> · <a href="#website">GitHub / 支持</a> · <a href="./">隐私政策</a></nav>
 <section class="sdk-card" aria-labelledby="yandex">
@@ -69,16 +69,18 @@
 <h2 id="google">Google 登录与 Drive；AppAuth Android 0.11.1</h2>
 <p><strong>接收方：</strong>根据 Google 政策，为 Google LLC 及适用的关联公司。<strong>用途：</strong>可选的账号连接、备份快照及跨设备日记合并。</p>
 <p><strong>数据及时间：</strong>在你选择连接之后，处理 OAuth 请求、电子邮件地址、账号标识符及令牌；同步时，处理日记内容、设置及更改元数据。数据直接发送至 Google。访问权限仅限 <code>openid</code>、<code>email</code> 和 <code>drive.appdata</code>。登录后执行首次同步，之后按设置自动同步或由你手动启动。</p>
-<p>存在购买时，可转移设置会包含购买编号及用于核验的技术信息。根据你的选择，它们可以进入 Google Drive 和 JSON 导出文件。核验恢复的购买时，应用会通过互联网直接连接 Robokassa。备份不会添加银行卡信息或支付表单中的邮箱；请勿公开购买编号或完整备份。</p>
+<p>存在购买时，可转移设置包含购买编号及核验信息。确认付款后，这些信息随完整日记快照保存到已连接账号的 Google Drive；手动导出的 JSON 不包含购买信息、许可或去广告确认信息。导入 JSON（包括旧文件）不会转移购买权益，并会保留已核验的本地许可。如果云端保存失败，应用会在启动时及有网络连接的后台状态下重试，即使常规自动同步已关闭。在应用内断开 Google 连接可停止这些交换。恢复购买需要保存的信息，并通过互联网向 Robokassa 再次核验。备份不会添加银行卡信息或支付表单中的邮箱；请勿公开购买编号或完整备份。</p>
 <p><strong>AppAuth</strong> 是用于浏览器登录、令牌交换和刷新的开源客户端库。在本应用的集成中，它连接的是 Google；OpenID 组织不是独立接收日记的服务器。<a href="https://github.com/openid/AppAuth-Android">AppAuth 文档</a>。</p>
 <p><a href="https://policies.google.com/privacy?hl=zh-CN">Google 隐私政策</a> · <a href="./#google-data">权限与保护措施</a> · <a href="./#limited-use">Google Limited Use</a> · <a href="./data-deletion.html">断开连接与删除</a>。应用不选择 Drive 数据的存储国家，也不对 JSON 快照提供端到端加密。</p>
 </section>
 <section class="sdk-card" aria-labelledby="robokassa">
 <h2 id="robokassa">Robokassa：可选支付</h2>
-<p>开始新的支付前，必须登录 Google、开启自动同步，并成功将日记同步到 Google Drive。打开支付表单前，应用会再次同步；如果失败，会打开 Google 页面并显示原因和登录按钮。确认付款后，应用立即将购买信息保存在设备上并与 Google Drive 同步。如果同步失败，设备上的购买会保留，应用会提供重试同步的选项。这是开始购买的条件，并非将购买在技术上绑定到 Google 账号。免费日记无需登录；在设备上已核验的购买仍可离线使用。</p>
+<p>开始新的支付前，必须登录 Google、开启自动同步，并在打开支付表单前成功完成一次新的日记同步。如果失败，应用会显示 Google 连接页面并说明原因。确认付款后，购买信息会保存在设备上，应用立即尝试将其随完整日记快照保存到已连接账号的 Google Drive。如果保存失败，本地购买仍然有效；你可以手动重试，应用也会在启动时及有网络连接的后台状态下重试。保存购买信息的重试不受日记常规自动同步开关控制；如需停止与 Google 交换数据，请在应用内断开 Google 账号连接。Google 用于备份购买信息，并不意味着许可在技术上绑定到该账号。免费日记无需 Google 登录；设备上已核验的购买可离线使用。</p>
 <p><strong>接收方：</strong>ООО «РОБОКАССА»（ROBOKASSA LLC）及你所选支付方式的服务提供者。<strong>用途：</strong>以一次性 149 俄罗斯卢布购买永久去广告权益，并出具支付凭证；没有订阅或自动重复支付。</p>
-<p><strong>数据及处理方式：</strong>官方 Robokassa Android SDK 打开支付网页表单，并直接向 Robokassa 查询支付状态。你在表单中填写支付信息和邮箱。Robokassa 还会接收购买参数及请求的技术数据。日记代码不会读取已填写的支付信息。日记内容、健康信息和 Google 数据不会发送至 Robokassa。购买编号随日记及你选择的备份保存，用于重新核验；未完成的支付单仅保存在设备的应用专用存储中。</p>
-<p><strong>处理时间：</strong>仅在你使用可用的购买功能时；构建包含 SDK 不表示真实支付已经启用。条款和处理规则见 <a href="https://robokassa.com/privacy-policy/">Robokassa 隐私政策</a>及<a href="https://diet.efreitor2001.ru/offer/">卖方要约（俄文）</a>。清除日记不会删除依法必须保留的交易记录及支付凭证。</p>
+<p><strong>数据及处理方式：</strong>应用内集成的 Robokassa SDK 打开支付网页表单，并直接向 Robokassa 查询支付状态，不经过开发者自建的支付服务器。你在表单中填写支付信息和邮箱。Robokassa 还会接收购买参数及请求的技术数据。日记代码不会读取已填写的支付信息。日记内容、健康信息和 Google 数据不会发送至 Robokassa。购买编号随日记及 Google Drive 快照保存，用于重新核验；未完成的支付单仅保存在设备的应用专用存储中。</p>
+<p><strong>处理时间：</strong>打开支付表单、查询或恢复购买时；设备上保存的未完成真实支付单也可能在有网络连接时于后台查询。只有 Robokassa 确认真实支付成功，且支付单号与保存的编号一致、金额为 149 俄罗斯卢布后，才启用去广告功能。仅从表单返回不能确认付款。条款和处理规则见 <a href="https://robokassa.com/privacy-policy/">Robokassa 隐私政策</a>及<a href="https://diet.efreitor2001.ru/offer/">卖方要约（俄文）</a>。清除日记不会删除依法必须保留的交易记录及支付凭证。</p>
+<p><strong>卖方通知与邮件。</strong>卖方通过 Robokassa 接收交易信息；支付通知发送至 <a href="mailto:pokimoha.2010@mail.ru">pokimoha.2010@mail.ru</a>，该邮箱也用于支付和退款咨询。邮件内容、发送者地址及你提供的附件用于支付记录和答复咨询，并保存在 Mail 邮箱（ООО «ВК»）中，适用<a href="https://help.mail.ru/legal/terms/mail/privacy/">其隐私政策</a>。通知中不包含日记内容。隐私、数据删除及技术支持使用单独的 Gmail 地址：<a href="mailto:pokimoha.123@gmail.com">pokimoha.123@gmail.com</a>。请勿发送支付密码、验证码或完整银行卡信息。</p>
+<p>仅对于本应用内与 <code>auth.robokassa.ru</code> 的 HTTPS 连接，应用额外信任内置的公开根证书 GlobalSign Root R46 和俄罗斯数字发展部的 Russian Trusted Root CA。证书及服务器名称校验仍然启用。这些证书不会安装到 Android 系统中，也不会扩展其他域名、浏览器或银行应用的信任范围。仅包含这些证书本身不会向证书颁发机构发送日记或其他用户数据。</p>
 </section>
 <section class="sdk-card" aria-labelledby="website">
 <h2 id="website">GitHub Pages 与 GitHub Issues</h2>

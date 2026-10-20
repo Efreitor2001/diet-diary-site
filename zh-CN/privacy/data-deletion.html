@@ -19,7 +19,7 @@
 <nav class="language-switch" aria-label="语言"><a href="../../privacy/data-deletion.html" lang="ru" hreflang="ru">Русский</a> · <a href="../../en/privacy/data-deletion.html" lang="en" hreflang="en">English</a> · <a href="../../zh-CN/privacy/data-deletion.html" lang="zh-CN" hreflang="zh-Hans" aria-current="page">简体中文</a></nav>
 
 <h1>删除你的数据</h1>
-<p class="meta">饮食日记 · 更新日期：<time datetime="2026-10-18">2026 年 10 月 18 日</time></p>
+<p class="meta">饮食日记 · 更新日期：<time datetime="2026-10-20">2026 年 10 月 20 日</time></p>
 <p>开发者及运营者：<strong>俄罗斯个体经营者 Sergey Olegovich Efremov（Efreitor2001）</strong>。联系邮箱：<a href="mailto:pokimoha.123@gmail.com">pokimoha.123@gmail.com</a>；<a href="https://diet.efreitor2001.ru/offer/#details">登记信息</a>。Android 软件包名：<code>ru.dietdiary.offline</code>。</p>
 <p>无需登录或重新安装应用即可阅读本说明。饮食日记不提供独立的应用账号；无需删除你的 Google 账号。日记保存在你的设备、可选的 Google Drive 快照，以及你自行导出的文件中。</p>
 <nav class="toc" aria-label="目录"><a href="#delete">删除全部副本</a> · <a href="#retention">可能保留的内容</a> · <a href="#payments">购买</a> · <a href="#help">获取帮助</a> · <a href="./">隐私政策</a></nav>
@@ -38,7 +38,7 @@
 <h2 id="retention">哪些内容会删除，哪些可能保留</h2>
 <div class="table-wrap"><table><thead><tr><th scope="col">操作</th><th scope="col">结果</th></tr></thead><tbody>
 <tr><td>删除单条日记记录</td><td>记录从界面中消失，删除标记会同步。日记字段的旧值可能保留在元数据、历史快照及导出文件中。</td></tr>
-<tr><td>关闭自动同步</td><td>停止自动交换；连接、记录和云端副本保留，仍可手动同步。</td></tr>
+<tr><td>关闭自动同步</td><td>停止常规日记自动同步；连接、记录和副本保留。仍可手动同步，也可能重试将已确认的购买随完整日记快照保存到云端。如需停止与 Google 交换数据，请断开账号连接。</td></tr>
 <tr><td>在应用内断开 Google 连接</td><td>删除本地会话和连接缓存，停止本设备同步。不会撤销 Google 端的授权本身，也不会删除日记、快照或 Google 账号。</td></tr>
 <tr><td>清除 Android 应用存储 / 卸载</td><td>删除本设备上的记录、设置、元数据、内部备份、保存的 Google 会话及本地购买及未完成支付的信息。不会删除 Drive 副本、导出文件或 Robokassa 和卖方持有的交易记录。</td></tr>
 <tr><td>删除 Google Drive 隐藏数据</td><td>删除所选账号中本应用的云端数据；本地及导出的副本仍保留。</td></tr>
@@ -48,9 +48,11 @@
 </section>
 <section aria-labelledby="payments">
 <h2 id="payments">购买、许可及支付记录</h2>
-<p>支付 149 俄罗斯卢布购买去广告功能后，购买编号及用于核验的技术信息会保存在设置中，也可能存在于 Google Drive 快照和导出的 JSON 中。在你的设备上恢复后，应用会在联网时直接向 Robokassa 核验付款；在设备上已核验的购买可离线使用。删除全部副本可能使应用失去恢复所需的信息；有关恢复问题，请联系支持。请勿公开购买编号或完整 JSON。</p>
+<p>确认一次性支付 149 俄罗斯卢布购买去广告功能后，购买编号及核验信息会保存在设置中。应用立即尝试将其随完整日记快照保存到已连接账号的 Google Drive；如果失败，会在启动时及有网络连接的后台状态下重试，即使常规自动同步已关闭。删除云端副本前，请在所有设备上断开 Google 连接。新的手动 JSON 导出文件不包含购买信息、许可或去广告确认信息。旧导出文件可能仍含有这些信息，请单独删除。导入 JSON 不会转移购买权益，并会保留已核验的本地许可。恢复购买需要从该 Google 账号取得保存的信息，再通过互联网向 Robokassa 确认相同支付单号的真实支付已成功，金额为 149 俄罗斯卢布。设备上已核验的购买可离线使用。删除全部副本可能使应用失去恢复所需的信息；请联系支持。请勿公开购买编号或完整 JSON。</p>
 <p>未完成支付单的信息仅保存在设备的应用专用存储中，清除该存储时会被删除。清除设备、Drive 或 JSON 不会删除 Robokassa 和卖方依法必须保留的交易记录及支付凭证。支付数据处理见<a href="./#payments">隐私政策</a>。</p>
+<p>保存的真实支付单可能在应用启动时及有网络连接的后台状态下继续接受状态查询。断开 Google 连接会停止 Google 数据交换，但不会停止这些 Robokassa 查询。清除应用存储会删除用于查询的本地信息，不会取消支付服务方记录的交易。</p>
 <p>如需删除已发送给支持的信息或询问支付记录的保留期限，请发送邮件至 <a href="mailto:pokimoha.123@gmail.com">pokimoha.123@gmail.com</a>，并尽可能提供支付单号及购买日期。我们会核实请求，说明哪些数据可以删除、哪些必须保留。请勿发送银行卡信息、密码、令牌或整个日记。Robokassa 持有的支付数据适用<a href="https://robokassa.com/privacy-policy/">其政策</a>；退款依照<a href="https://diet.efreitor2001.ru/offer/#refunds">卖方要约（俄文）</a>处理。</p>
+<p>Robokassa 支付通知及支付、退款邮件另行保存在 Mail 邮箱 <a href="mailto:pokimoha.2010@mail.ru">pokimoha.2010@mail.ru</a>；技术及隐私支持使用 Gmail。删除日记不会删除这些邮件。你可以向相应地址提出删除请求；依法必须保留的交易记录依据适用规定保留。另请参阅 <a href="https://help.mail.ru/legal/terms/mail/privacy/">Mail 隐私政策</a>。</p>
 </section>
 <section aria-labelledby="help">
 <h2 id="help">帮助及删除请求</h2>

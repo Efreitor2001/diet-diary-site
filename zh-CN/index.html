@@ -43,7 +43,7 @@
     </div>
     <div class="showcase">
       <figure><img src="../assets/weight-chart.png" width="1080" height="1920" loading="lazy" alt="以图表显示月度体重变化，截图为俄语界面"><figcaption>查看测量数据的历史变化</figcaption></figure>
-      <div><h3>由你管理自己的记录</h3><p>主要日记保存在设备上。你可以将其导出为 JSON 文件，也可以从自己选择的备份恢复。</p><p>无需填满所有字段或连接账号即可开始使用。食物营养值仅供参考，请核对产品标签，并自行设置目标。</p><a href="privacy/data-deletion.html">如何管理数据与删除副本 →</a></div>
+      <div><h3>由你管理自己的记录</h3><p>主要日记保存在设备上。你可以将其导出为 JSON 文件，也可以从自己选择的备份恢复。手动 JSON 文件不包含购买或去广告信息，也不能通过导入文件转移这些权益。</p><p>无需填满所有字段或连接账号即可开始使用。食物营养值仅供参考，请核对产品标签，并自行设置目标。</p><a href="privacy/data-deletion.html">如何管理数据与删除副本 →</a></div>
       <figure><img src="../assets/measurements.png" width="1080" height="1920" loading="lazy" alt="可选的体重、睡眠与活动记录，截图为俄语界面"><figcaption>只记录你需要的指标</figcaption></figure>
     </div>
   </section>
@@ -53,7 +53,8 @@
     <p class="lead">Google Drive 用于保存日记备份，并合并你在不同设备上的记录。</p>
     <ol class="steps"><li>在应用中打开「更多」→「云端同步」，选择连接 Google。</li><li>在 Google 的浏览器登录页面选择账号，查看并确认所请求的权限。密码仅在 Google 页面输入。</li><li>应用在你的 Drive 中读写本应用专用的隐藏数据文件夹，使用 JSON 快照保存日记。你可以单独关闭自动同步。</li></ol>
     <div class="permissions"><article><h3>你选择的账号</h3><p><code>openid</code> 和 <code>email</code> 用于识别所选 Google 账号，并在连接设置中显示其邮箱地址。</p></article><article><h3>仅访问本应用的数据</h3><p><code>https://www.googleapis.com/auth/drive.appdata</code> 仅授予本应用隐藏数据文件夹的访问权限，不授予普通 Drive 文档或照片的访问权限。</p></article></div>
-    <p>快照包含食物、饮食记录、测量值、备注、目标、成就及同步元数据。应用不会将日记内容或 Google 数据用于广告定向、出售数据或训练人工智能模型。开发者没有接收日记内容的自建服务器。</p>
+    <p>快照包含食物、饮食记录、测量值、备注、目标、成就、设置及同步元数据，购买后还包括购买编号及核验信息。应用不会将日记内容或 Google 数据用于广告定向、出售数据或训练人工智能模型。开发者没有接收日记内容的自建服务器。</p>
+<p>免费日记无需 Google。通过 Robokassa 一次性支付 149 俄罗斯卢布购买去广告功能前，必须登录 Google、开启自动同步并成功完成新的日记同步。确认购买后，应用自动将购买信息随完整日记快照保存到已连接账号的 Google Drive，并在失败后重试，即使常规自动同步已关闭。断开 Google 连接可停止这些交换。详情见<a href="privacy/#payments">隐私政策</a>及<a href="../offer/" lang="ru">卖方要约（俄文）</a>。</p>
     <p>断开账号连接会保留本地日记和已有云端副本。请按照<a href="privacy/data-deletion.html">删除数据说明</a>清除这些副本。Google 服务为可选功能，在中国大陆等地区可能无法使用；不连接 Google 也能使用本地日记。</p>
     <p><a href="privacy/index.html">了解数据的访问、使用、存储与共享方式 →</a></p>
   </section>
